@@ -79,7 +79,9 @@ def create_timelapse_video():
   video_size = IMAGE_SIZE * 4
   video = cv2.VideoWriter(TIMELAPSE_VIDEO_PATH, cv2.VideoWriter_fourcc(*'mp4v'), 4, (video_size, video_size))
   
-  for path in os.listdir(BACKUPS_DIR):
+  paths = os.listdir(BACKUPS_DIR)
+  paths.sort()
+  for path in paths:
     image = cv2.imread(os.path.join(BACKUPS_DIR, path))
     image = cv2.resize(image, (video_size, video_size), interpolation = cv2.INTER_NEAREST)
     video.write(image)
@@ -137,5 +139,6 @@ if __name__ == "__main__":
     image.save(IMAGE_PATH)
   if not os.path.exists(VIDEO_PATH):
     create_video()
+  create_timelapse_video()
   logging.basicConfig(level=logging.DEBUG, filename='app.log', filemode='w', format='%(asctime)s - %(levelname)s - %(message)s')
-  app.run(host='0.0.0.0', port=5001)
+  app.run(host='0.0.0.0', port=5000)
