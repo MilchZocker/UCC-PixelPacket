@@ -10,11 +10,11 @@ from time import time, gmtime, strftime
 app = Flask(__name__)
 app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1)
 
-DATA_DIR = 'data/'
-BACKUPS_DIR = 'backups/'
-IMAGE_PATH = 'canvas.png'
-VIDEO_PATH = 'canvas.mp4'
-TIMELAPSE_VIDEO_PATH = 'timelapse.mp4'
+DATA_DIR = './app/data/'
+BACKUPS_DIR = './app/backups/'
+IMAGE_PATH = './app/canvas.png'
+VIDEO_PATH = './app/canvas.mp4'
+TIMELAPSE_VIDEO_PATH = './app/timelapse.mp4'
 
 IMAGE_SIZE = 64
 
