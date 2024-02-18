@@ -8,7 +8,7 @@
 	RUN apt-get install -y libgl1-mesa-glx
 
 	# Set ENV for Repository extract
-	WORKDIR ./pixelpacket
+	WORKDIR /pixelpacket
 	COPY ["./Pixel Packet/", "./"]
 
 	# Begin setup for Python
@@ -16,7 +16,7 @@
 	RUN pip install Pillow Flask opencv-python Werkzeug
 
 	# Switch to persistent directory
-	WORKDIR ./app
+	WORKDIR ../app
 
 	# Lauch PixelPacket
-	CMD python ./pixelpacket/cvr-r-place-backend.py
+	CMD python /pixelpacket/cvr-r-place-backend.py
