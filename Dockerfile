@@ -2,13 +2,13 @@
 
 	# Updating system packages
 	RUN apt-get update
-	RUN apt-get upgrade
+	RUN apt-get upgrade -y
 	
 	# Nessesary for cv2
 	RUN apt-get install -y libgl1-mesa-glx
 
 	# Set ENV for Repository extract
-	WORKDIR "/debian/Desktop/UCC-PixelPacket/Pixel Packet"
+	WORKDIR "pixelpacket"
 	COPY ["./Pixel Packet/", "./"]
 
 	# Begin setup for Python
